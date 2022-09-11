@@ -21,14 +21,12 @@ namespace SpecFlowSkeleton.Support
 
         private readonly ScenarioContext _scenarioContext;
         private readonly IConfiguration _configuration;
-        private readonly SecretClient _secretClient;
         private readonly ISpecFlowOutputHelper _specFlowOutputHelper;
 
-        public Hooks(ScenarioContext scenarioContext, IConfiguration configuration, SecretClient secretClient, ISpecFlowOutputHelper specFlowOutputHelper)
+        public Hooks(ScenarioContext scenarioContext, IConfiguration configuration, ISpecFlowOutputHelper specFlowOutputHelper)
         {
             _scenarioContext = scenarioContext;
             _configuration = configuration;
-            _secretClient = secretClient;
             _specFlowOutputHelper = specFlowOutputHelper;
         }
 
@@ -39,7 +37,8 @@ namespace SpecFlowSkeleton.Support
             browser = await playwright.Chromium.LaunchAsync(
                 new BrowserTypeLaunchOptions
                 {
-                    Headless = false
+                    Headless = false,
+                    SlowMo = 1000
                 });
         }
 
@@ -69,6 +68,13 @@ namespace SpecFlowSkeleton.Support
         {
             var broswerContext = _scenarioContext.Get<IBrowserContext>(BrowserContextKey);
 
+            await broswerContext.StorageStateAsync(new BrowserContextStorageStateOptions
+            {
+                Path = "state.json"
+            });
+
+            IsAuthenticated = true;
+
             await browser.CloseAsync();
             if (_scenarioContext.TestError is not null)
             {
@@ -79,12 +85,7 @@ namespace SpecFlowSkeleton.Support
                 _specFlowOutputHelper.WriteLine("Test without error");
             }
 
-            await broswerContext.StorageStateAsync(new BrowserContextStorageStateOptions
-            {
-                Path = "state.json"
-            });
-
-            IsAuthenticated = true;            
+                   
         }
 
     }

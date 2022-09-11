@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace SpecFlowSkeleton.Features
+namespace SpecFlowPlaywrightSkeleton.Features
 {
     using TechTalk.SpecFlow;
     using System;
@@ -31,7 +31,7 @@ namespace SpecFlowSkeleton.Features
 #line 1 "BasicExample.feature"
 #line hidden
         
-        public BasicExampleFeature(BasicExampleFeature.FixtureData fixtureData, SpecFlowSkeleton_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
+        public BasicExampleFeature(BasicExampleFeature.FixtureData fixtureData, SpecFlowPlaywrightSkeleton_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
         {
             this._testOutputHelper = testOutputHelper;
             this.TestInitialize();
@@ -40,8 +40,9 @@ namespace SpecFlowSkeleton.Features
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "BasicExample", "![PlaywrightLogo](https://image.pngaaa.com/84/5809084-middle.png)\r\nSimple navigat" +
-                    "ion through the Playwright Doc website", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "BasicExample", "![PlaywrightLogo](https://www.returngis.net/wp-content/uploads/2021/10/Playwright" +
+                    "-logo.png)\r\nSimple navigation through the Playwright Doc website to build a Play" +
+                    "wright & Specflow skeleton for more complex tests", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -81,16 +82,16 @@ namespace SpecFlowSkeleton.Features
             this.TestTearDown();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Navigating through the Playwright website")]
+        [Xunit.SkippableFactAttribute(DisplayName="Navigating through Playwright\'s website")]
         [Xunit.TraitAttribute("FeatureTitle", "BasicExample")]
-        [Xunit.TraitAttribute("Description", "Navigating through the Playwright website")]
+        [Xunit.TraitAttribute("Description", "Navigating through Playwright\'s website")]
         [Xunit.TraitAttribute("Category", "specflowPlaywrightSkeleton")]
-        public virtual void NavigatingThroughThePlaywrightWebsite()
+        public virtual void NavigatingThroughPlaywrightsWebsite()
         {
             string[] tagsOfScenario = new string[] {
                     "specflowPlaywrightSkeleton"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Navigating through the Playwright website", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Navigating through Playwright\'s website", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 6
 this.ScenarioInitialize(scenarioInfo);
 #line hidden

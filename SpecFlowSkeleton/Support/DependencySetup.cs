@@ -18,10 +18,6 @@ namespace SpecFlowSkeleton.Support
 
             var configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json").AddEnvironmentVariables().Build();
 
-            var keyVaultUri = new Uri(configuration[ConfigurationKeys.KeyVaultUri]);
-            var secretClient = new SecretClient(keyVaultUri, new DefaultAzureCredential());
-            services.AddSingleton(secretClient);
-
             RegisterPages(services);
 
             services.AddSingleton<IConfiguration>(configuration);

@@ -22,7 +22,7 @@ namespace SpecFlowSkeleton.StepDefinitions
         [Given(@"he clicks on the dotnet doc option")]
         public async Task GivenHeClicksOnTheDotnetDocOption()
         {
-            await _playwrightPage.ClickAsync(PlaywrightPageObject.DotnetDocOption);
+            await _playwrightPage.DispatchClickAsync(PlaywrightPageObject.DotnetDocOption);
         }
 
         [Given(@"he clicks on the get started button")]
