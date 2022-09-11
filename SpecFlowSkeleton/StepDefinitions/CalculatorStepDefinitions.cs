@@ -1,44 +1,44 @@
+using SpecFlowSkeleton.PageObjects;
+using SpecFlowSkeleton.Pages;
+
 namespace SpecFlowSkeleton.StepDefinitions
 {
     [Binding]
-    public sealed class CalculatorStepDefinitions
+    public sealed class BasicExampleSteps
     {
-        // For additional details on SpecFlow step definitions see https://go.specflow.org/doc-stepdef
+        private readonly PlaywrightPage _playwrightPage;
 
-        [Given("the first number is (.*)")]
-        public void GivenTheFirstNumberIs(int number)
+        public BasicExampleSteps(PlaywrightPage playwrightPage)
         {
-            //TODO: implement arrange (precondition) logic
-            // For storing and retrieving scenario-specific data see https://go.specflow.org/doc-sharingdata
-            // To use the multiline text or the table argument of the scenario,
-            // additional string/Table parameters can be defined on the step definition
-            // method. 
-
-            throw new PendingStepException();
+            _playwrightPage = playwrightPage;
         }
 
-        [Given("the second number is (.*)")]
-        public void GivenTheSecondNumberIs(int number)
+        [Given(@"a user that navigates to the website")]
+        public async Task GivenAUserThatNavigatesToTheWebsite()
         {
-            //TODO: implement arrange (precondition) logic
-
-            throw new PendingStepException();
+            await _playwrightPage.GotoAsync();
         }
 
-        [When("the two numbers are added")]
-        public void WhenTheTwoNumbersAreAdded()
+        [Given(@"he clicks on the dotnet doc option")]
+        public async Task GivenHeClicksOnTheDotnetDocOption()
         {
-            //TODO: implement act (action) logic
-
-            throw new PendingStepException();
+            await _playwrightPage.ClickAsync(PlaywrightPageObject.DotnetDocOption);
         }
 
-        [Then("the result should be (.*)")]
-        public void ThenTheResultShouldBe(int result)
+        [Given(@"he clicks on the get started button")]
+        public async Task GivenHeClicksOnTheGetStartedButton()
         {
-            //TODO: implement assert (verification) logic
-
-            throw new PendingStepException();
+            await _playwrightPage.ClickAsync(PlaywrightPageObject.GetStartedButton);
         }
+
+        [Then(@"the installation instructions should be available")]
+        public async Task ThenTheInstallationInstructionsShouldBeAvailable()
+        {
+            await _playwrightPage.IsVisibleAsync(PlaywrightPageObject.InstallationText);
+        }
+
+
+
+
     }
 }
